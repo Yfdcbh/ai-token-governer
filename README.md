@@ -14,3 +14,13 @@ An intelligent LLM orchestration layer designed to control API costs, prevent ra
 ---
 
 ## 🛠️ Architecture
+
+
+User Prompt ──► [Token Governor]
+│
+├─► Check Cache ──────► Return Cached Response (0 Cost)
+│
+├─► Budget Check ─────► Block if Limit Exceeded
+│
+└─► Complexity Router ─┬─► Lightweight Model (Low Cost)
+└─► Deep Reasoning Model (High Tier)
